@@ -1,12 +1,7 @@
-// A little Moire Pattern simulator so you can laser cut some moire stamps
-// Generate a pattern, test how it looks, export it as an SVG
-// and then bring it to your fav laser cuter!
-
 // lee cyborg 2025
 // Creative Commons Share-alike with credit, non commercial 
 
 // A few global variables so you can move around your moire pattern
-// P
 let angle = 0;
 let xPos = 0;
 let yPos = 0;
@@ -27,9 +22,8 @@ background(255); // Always draw a background
 
 // Sample drawing lines 
 // params are:stroke thickness, space between, rotation angle and location. 
- makeLines(4, 10, 0, angle, 0);
- makeLines(10, 20, 20, 100, 0);
-// makeLines(10, 20, 100, 0, height/2);
+makeLines(4, 10, angle, xPos, yPos);
+makeLines(10, 20, 100, 0, height/2);
 // makeLines(10, 20, 10, xPos, yPos);
 
 // Sample drawing grids 
@@ -48,8 +42,8 @@ function makeLines(thickness, padding, degrees, xPos, yPos){
     rotate(degrees);
     translate(xPos,yPos);
         for (var x = 0; x < width; x += padding) {
-        strokeWeight(thickness);
-        line(x, 0, x, height);
+            strokeWeight(thickness);
+            line(x, 0, x, height);
         }
     pop();
 }
